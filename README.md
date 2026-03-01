@@ -2,21 +2,31 @@
 
 FaceID-verification is a real-time face identification system built with Python and OpenCV. It combines DNN-based face detection (ResNet SSD) with LBPH recognition to identify known users, reject unknown individuals, and handle no-face scenarios from a live webcam stream.  
 
-
-
 ## Project Overview
 
 **FaceID-verification** is a real-time face identification and verification system built with Python and OpenCV.  
 The application detects a face from a live webcam stream, extracts facial features, and identifies whether the detected person belongs to a set of known individuals or should be classified as an unknown user.
 
-The system supports four decision states:
+The system supports three decision states:
 
-- **Known person detected** (e.g., Tomasz, Ania)
+- **Known person detected** (e.g., Tomas, Anne)
 - **Unknown person detected**
 - **No face detected**
-- **Real-time confidence (distance) evaluation**
 
-### How It Works
+Additionally displays **real-time confidence** (distance) evaluation
+
+
+
+<img src="images/b5e60ede7790be2efbf489b1ca71078e0933679e.png" title="" alt="" width="525">
+<img src="images/d553ccbf0a6336a39afc2e1c87e952e9e60f8d3f.png" title="" alt="" width="524">
+
+(moje zdjęcie udane)
+
+
+
+
+
+**How It Works**
 
 1. A live video stream is captured from the webcam.
 2. A Deep Neural Network (DNN) face detector (ResNet SSD) identifies faces in the frame.
@@ -27,22 +37,11 @@ The system supports four decision states:
    - If the face should be classified as **Unknown**
    - If no face is present
 
-### Data Collection
 
-Data was collected using a dedicated collection script that:
 
-- Captures webcam frames
-- Detects faces using OpenCV DNN
-- Crops and normalizes facial regions
-- Stores images in a per-person directory structure
+(zdjęcie wykryto wojtka)
 
-Each participant (including myself and several colleagues) provided 150–300 face samples under:
 
-- Different lighting conditions
-- Slight head rotations
-- Natural facial expressions
-
-This ensured realistic training data and better generalization during testing.
 
 ### Decision Logic
 
@@ -55,6 +54,14 @@ The system performs **1:N identification** with rejection capability:
   - If `confidence ≥ threshold` → `"Unknown person"`
 
 This approach prevents forced classification and introduces a practical identity rejection mechanism.
+
+
+
+(zdjęcie kostka - nieznany)
+
+(zdjęcie bez twazy)
+
+
 
 ---
 
@@ -78,13 +85,7 @@ net.setInput(blob)
 detections = net.forward()
 ```
 
-This provides:
-
-- Robust frontal face detection
-- Better stability than Haar cascades
-- Improved handling of lighting and minor pose changes
-
----
+This deep learning–based detector locates faces in each video frame with higher robustness to lighting and slight pose variations compared to traditional Haar cascades.
 
 ### 2. Face Recognition with LBPH
 
@@ -97,12 +98,7 @@ model.train(faces, labels)
 label, confidence = model.predict(face)
 ```
 
-Key characteristics:
-
-- Histogram-based texture descriptor
-- Efficient for small datasets
-- Interpretable distance metric
-- Suitable for local/offline authentication systems
+LBPH encodes facial texture into local binary patterns and compares histogram distances to identify faces using a confidence threshold.
 
 ---
 
@@ -154,8 +150,8 @@ pip install opencv-python opencv-contrib-python numpy
 Collect face samples for each person:
 
 ```bash
-python src/collect.py --name Tomasz
-python src/collect.py --name Ania
+python src/collect.py --name Tomas
+python src/collect.py --name Anne
 ```
 
 Images will be stored under:
@@ -189,8 +185,8 @@ python src/recognise.py
 
 Possible outputs:
 
-- **Detected: Tomasz**
-- **Detected: Ania**
+- **Detected: Tomas**
+- **Detected: Anne**
 - **Unknown person**
 - **No face detected**
 
