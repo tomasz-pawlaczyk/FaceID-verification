@@ -30,7 +30,7 @@ Additionally displays **real-time confidence** (distance) evaluation
    - If the face should be classified as **Unknown**
    - If no face is present
 
-<img title="" src="images/Wojtek_ai.png" alt="" width="489">
+<img title="" src="images/wojtek_ai.png" alt="" width="489">
 
 ### Decision Logic
 
