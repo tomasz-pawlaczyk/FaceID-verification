@@ -15,16 +15,9 @@ The system supports three decision states:
 
 Additionally displays **real-time confidence** (distance) evaluation
 
+<img title="" src="images/Tomasz_detected.png" alt="" width="512">
 
-
-<img src="images/b5e60ede7790be2efbf489b1ca71078e0933679e.png" title="" alt="" width="525">
-<img src="images/d553ccbf0a6336a39afc2e1c87e952e9e60f8d3f.png" title="" alt="" width="524">
-
-(moje zdjęcie udane)
-
-
-
-
+<div align="center"><sub> <b>Positive verification:</b> I have been properly detected                          </sub>
 
 **How It Works**
 
@@ -37,11 +30,7 @@ Additionally displays **real-time confidence** (distance) evaluation
    - If the face should be classified as **Unknown**
    - If no face is present
 
-
-
-(zdjęcie wykryto wojtka)
-
-
+<img title="" src="images/Wojtek_ai.png" alt="" width="489">
 
 ### Decision Logic
 
@@ -55,13 +44,9 @@ The system performs **1:N identification** with rejection capability:
 
 This approach prevents forced classification and introduces a practical identity rejection mechanism.
 
-
-
 (zdjęcie kostka - nieznany)
 
-(zdjęcie bez twazy)
-
-
+<img src="images/no_face_detected.png" title="" alt="" width="471">
 
 ---
 
