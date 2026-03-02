@@ -17,7 +17,7 @@ Additionally displays **real-time confidence** (distance) evaluation
 
 <img title="" src="images/Tomasz_detected.png" alt="" width="512">
 
-<div align="center"><sub> <b>Positive verification:</b> I have been properly detected                          </sub>
+<div align="center"><sub> <b>Positive verification:</b> I have been properly detected                          </sub></div>
 
 **How It Works**
 
