@@ -17,7 +17,9 @@ Additionally displays **real-time confidence** (distance) evaluation
 
 <img title="" src="images/Tomasz_detected.png" alt="" width="512">
 
-<div align="center"><sub> <b>Positive verification:</b> I have been properly detected                          </sub></div>
+<sub><b>Positive verification:</b> I was properly detected</sub>
+
+
 
 **How It Works**
 
@@ -30,7 +32,10 @@ Additionally displays **real-time confidence** (distance) evaluation
    - If the face should be classified as **Unknown**
    - If no face is present
 
-<img title="" src="images/wojtek_ai.png" alt="" width="489">
+<img title="" src="images/wojtek_ai.png" alt="" width="489">    
+<sub> <b>Positive verification:</b> My friend was properly detected </sub>
+
+
 
 ### Decision Logic
 
@@ -47,6 +52,8 @@ This approach prevents forced classification and introduces a practical identity
 (zdjęcie kostka - nieznany)
 
 <img src="images/no_face_detected.png" title="" alt="" width="471">
+
+<div align="center"><sub><b>Negative verification:</b> no face and unknown person were detected </sub></div>
 
 ---
 
