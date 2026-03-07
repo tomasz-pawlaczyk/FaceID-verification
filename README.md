@@ -34,7 +34,7 @@ Additionally displays **real-time confidence** (distance) evaluation
 
 <img title="" src="images/wojtek_ai.png" alt="" width="489">   
  
-<sub><b>Positive verification:</b> My friend was properly detected </sub>
+<sub><b>Positive verification:</b> My friend was properly detected</sub>
 
 
 
