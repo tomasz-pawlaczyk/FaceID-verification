@@ -37,6 +37,7 @@ def detect_face(frame):
     if max_conf < 0.6:
         return None
 
+
     box = box * np.array([w, h, w, h])
     (startX, startY, endX, endY) = box.astype("int")
 
