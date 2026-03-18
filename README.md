@@ -46,7 +46,7 @@ The system performs **1:N identification** with rejection capability:
 
 This approach prevents forced classification and introduces a practical identity rejection mechanism.
 
-<img title="" src="images/example_of_wrong_detection.jpg" alt="" width="610">
+<img title="" src="images/negative_verification.jpg" alt="" width="610">
 
 <div align="center"><sub><b>Negative verification:</b> no face and unknown person were detected </sub></div>
 
