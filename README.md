@@ -4,7 +4,7 @@ FaceID-verification is a real-time face identification system built with Python 
 
 ## Project Overview
 
-**FaceID-verification** is a real-time face identification and verification system built with Python and OpenCV.  
+**FaceID-verification** is a real-time face identification and verification system built with Python and OpenCV. 
 The application detects a face from a live webcam stream, extracts facial features, and identifies whether the detected person belongs to a set of known individuals or should be classified as an unknown user.
 
 The system supports three decision states:
@@ -18,8 +18,6 @@ Additionally displays **real-time confidence** (distance) evaluation
 <img title="" src="images/Tomasz_detected.png" alt="" width="512">
 
 <sub><b>Positive verification:</b> I was properly detected</sub>
-
-
 
 **How It Works**
 
@@ -36,8 +34,6 @@ Additionally displays **real-time confidence** (distance) evaluation
 
 <sub><b>Positive verification:</b> My friend was properly detected</sub>
 
-
-
 ### Decision Logic
 
 The system performs **1:N identification** with rejection capability:
@@ -50,11 +46,44 @@ The system performs **1:N identification** with rejection capability:
 
 This approach prevents forced classification and introduces a practical identity rejection mechanism.
 
-(zdjęcie kostka - nieznany)
-
-<img src="images/no_face_detected.png" title="" alt="" width="471">
+<img title="" src="images/example_of_wrong_detection.jpg" alt="" width="610">
 
 <div align="center"><sub><b>Negative verification:</b> no face and unknown person were detected </sub></div>
+
+---
+
+## Project Structure
+
+```
+face_unlock/
+│
+├── data/
+│   ├── dataset/
+│   │   ├── Tomasz/
+│   │   └── Ania/
+│   └── model/
+│
+├── models/
+│   ├── deploy.prototxt
+│   └── res10_300x300_ssd_iter_140000.caffemodel
+│
+├── src/
+│   ├── collect.py
+│   ├── train.py
+│   ├── recognise.py
+│   └── face_utils.py
+│
+└── README.md
+```
+
+### Responsibilities
+
+- **collect.py** – captures and stores training data
+- **train.py** – trains the LBPH model and saves it to disk
+- **recognise.py** – performs real-time face identification
+- **face_utils.py** – handles DNN-based face detection
+
+The project follows a modular structure to ensure maintainability and scalability.
 
 ---
 
@@ -92,41 +121,6 @@ label, confidence = model.predict(face)
 ```
 
 LBPH encodes facial texture into local binary patterns and compares histogram distances to identify faces using a confidence threshold.
-
----
-
-## Project Structure
-
-```
-face_unlock/
-│
-├── data/
-│   ├── dataset/
-│   │   ├── Tomasz/
-│   │   └── Ania/
-│   └── model/
-│
-├── models/
-│   ├── deploy.prototxt
-│   └── res10_300x300_ssd_iter_140000.caffemodel
-│
-├── src/
-│   ├── collect.py
-│   ├── train.py
-│   ├── recognise.py
-│   └── face_utils.py
-│
-└── README.md
-```
-
-### Responsibilities
-
-- **collect.py** – captures and stores training data
-- **train.py** – trains the LBPH model and saves it to disk
-- **recognise.py** – performs real-time face identification
-- **face_utils.py** – handles DNN-based face detection
-
-The project follows a modular structure to ensure maintainability and scalability.
 
 ---
 
